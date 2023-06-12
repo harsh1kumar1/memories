@@ -65,7 +65,7 @@ const Auth = () => {
       useEffect(() => {
         function start() {
         gapi.client.init({
-     clientId :"554427961686-v8hhlvunespn5v8q33boijg7ieujplqf.apps.googleusercontent.com",
+     clientId :"clientId",
         scope: 'email',
           });
            }
@@ -99,7 +99,7 @@ const Auth = () => {
             </Button>
 
             <GoogleLogin 
-                clientId="554427961686-v8hhlvunespn5v8q33boijg7ieujplqf.apps.googleusercontent.com"
+                clientId="clientId"
                 render={(renderProps)=>(
                     <Button className={classes.googleButton} color="primary" fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon />} variant="contained">
                     Google Sign In
