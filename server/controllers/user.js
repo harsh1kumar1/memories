@@ -15,7 +15,7 @@ export const signin= async(req,res)=>{
     
     if (!isPasswordCorrect) return res.status(400).json({ message: "Invalid credentials" }); 
 
-    const token =jwt.sign({email:existingUser.email,id:existingUser._id },'test',{ expiresIn: "1h" });
+    const token =jwt.sign({email:existingUser.email,id:existingUser._id },'KEY',{ expiresIn: "1h" });
 
     res.status(200).json({result:existingUser,token})
   } catch (error) {
@@ -39,7 +39,7 @@ export const  signup =async(req,res) =>{
     const hashedPassword = await bcrypt.hash(password, 12);
     const result = await User.create({ email, password: hashedPassword, name: `${firstName} ${lastName}` });
     
-    const token =jwt.sign({email:result.email,id:result._id },'test',{ expiresIn: "1h" });
+    const token =jwt.sign({email:result.email,id:result._id },'KEY',{ expiresIn: "1h" });
 
     res.status(200).json({ result, token });
   } catch (error) {
